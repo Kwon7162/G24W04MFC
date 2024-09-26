@@ -60,7 +60,8 @@ void CG24W04MFCView::OnDraw(CDC* pDC)
 		return;
 
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
-	pDC->Ellipse(100, 100, 200, 200);
+	CPoint p = pDoc->GetPos();
+	pDC->Ellipse(p.x - 30, p.y - 30, p.x + 30, p.y + 30);
 }
 
 
@@ -110,8 +111,12 @@ CG24W04MFCDoc* CG24W04MFCView::GetDocument() const // 디버그되지 않은 버
 void CG24W04MFCView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-	CClientDC dc(this);
-	dc.Ellipse(point.x - 30, point.y - 30, point.x + 30, point.y + 30);
+	
+	//CClientDC dc(this);
+	//dc.Ellipse(point.x - 30, point.y - 30, point.x + 30, point.y + 30);
+
+	GetDocument()->SetPos(point);
+	Invalidate();
 
 	CView::OnLButtonDown(nFlags, point);
 }

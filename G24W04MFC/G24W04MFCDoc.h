@@ -8,6 +8,16 @@
 
 class CG24W04MFCDoc : public CDocument
 {
+protected:
+	CPoint Pos = CPoint(-100, -100);
+public:
+	CPoint GetPos() {
+		return Pos;
+	}
+	void SetPos(CPoint p) {
+		Pos = p;
+	}
+
 protected: // serialization에서만 만들어집니다.
 	CG24W04MFCDoc() noexcept;
 	DECLARE_DYNCREATE(CG24W04MFCDoc)
