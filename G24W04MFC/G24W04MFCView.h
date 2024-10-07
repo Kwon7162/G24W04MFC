@@ -43,7 +43,7 @@ protected:
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
-	/*afx_msg void OnMouseMove(UINT nFlags, CPoint point);*/
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // G24W04MFCView.cpp의 디버그 버전
