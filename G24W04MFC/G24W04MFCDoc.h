@@ -9,13 +9,28 @@
 class CG24W04MFCDoc : public CDocument
 {
 protected:
-	CPoint Pos = CPoint(-100, -100);
+	//CPoint Point = CPoint(-100, -100);
+	CArray<CPoint, CPoint> Points;
 public:
-	CPoint GetPos() {
-		return Pos;
+	int GetPointsCount() { return (int)Points.GetCount(); }
+
+	//CPoint GetPoint() { return Point; }
+	CPoint GetPoint(int index) { return Points[index]; }
+
+	//void SetPoint(CPoint p) { 
+	//	Point = p; 
+	//	SetModifiedFlag();
+	//}
+	void AddPoint(CPoint p) {
+		Points.Add(p);
+		SetModifiedFlag();
 	}
-	void SetPos(CPoint p) {
-		Pos = p;
+	
+	void RemoveLast() {
+		if (Points.GetCount() > 0) {
+			Points.RemoveAt(Points.GetCount() - 1);
+			SetModifiedFlag();
+		}
 	}
 
 protected: // serialization에서만 만들어집니다.
